@@ -50,7 +50,7 @@ public class MySqlApplication {
     	int start = string.indexOf("=") + 1;
     	int end = string.indexOf("}");
     	String new_str2 = string.substring(start,end);
-
+    	new_str2 = "あ";
     	return new TextMessage(new_str2);  //new_str2を返す。
     	}
 
