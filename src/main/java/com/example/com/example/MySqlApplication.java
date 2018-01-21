@@ -39,7 +39,7 @@ public class MySqlApplication {
         String inputstr = event.getMessage().getText();//入力された文字列をinputstrに入れる
 
       	List<Map<String, Object>> list2 = jdbc.queryForList
-    			("SELECT means FROM instrument where words like '" + inputstr + "'");
+    			("SELECT means FROM instrument where words like '" + inputstr + "';");
     	 //テーブル「instrument」から文字列「入力値」を含む行から、カラム「comment」を取り出す。
 
         list2.forEach(System.out::println);   //取り出したカラムを文字列に変換。
