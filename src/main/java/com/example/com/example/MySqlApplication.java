@@ -36,7 +36,7 @@ public class MySqlApplication {
     public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         System.out.println("event: " + event);//イベントをログに出力
 
-        String inputstr = event.getMessage().getText();//入力された文字列をinputstrに入れる
+        String inputstr = event.getMessage().getText() + "?useUnicode=true&characterEncoding=utf8";//入力された文字列をinputstrに入れる
 
       	List<Map<String, Object>> list2 = jdbc.queryForList
     			("SELECT means FROM instrument where words like '" + inputstr + "';");
