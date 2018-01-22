@@ -1,6 +1,5 @@
 package com.example.com.example;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -102,8 +101,7 @@ public class MySqlApplication {
         		mode = 3;
         		break;
         case 6:
-        	ResultSet rs = jdbc.queryForObject("SELECT MAX(id) FROM instrument;", ResultSet.class);
-        int id = rs.getInt("id");
+        	int id = jdbc.queryForObject("SELECT MAX(id) FROM instrument;", Integer.class);
         	List<Map<String, Object>> list1 = jdbc.queryForList
 			("SELECT words FROM instrument where id like " + id + ";");
         	List<Map<String, Object>> list2 = jdbc.queryForList
