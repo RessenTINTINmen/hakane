@@ -53,7 +53,8 @@ public class MySqlApplication {
 
         String inputstr = event.getMessage().getText();//入力された文字列をinputstrに入れる
         String msg1;
-        Object obj = null;
+        TemplateMessage obj = null;
+
         switch (mode) {
         case 0:
         		msg1 = "こんちわ	、なにかはかねにようじ？";
@@ -70,14 +71,14 @@ public class MySqlApplication {
         		word = inputstr;
         		mode = 2;
         		msg1 = "それってどーゆーイミなの？";
-        		obj = Arrays.asList(new TextMessage(msg1));
+        		//obj = Arrays.asList(new TextMessage(msg1));
         		break;
         case 2:
         		mean = inputstr;
         		mode = 0;
         		createColumn(word, mean);
         		msg1 = "オボえたよ。";
-        		obj = Arrays.asList(new TextMessage(msg1));
+        		//obj = Arrays.asList(new TextMessage(msg1));
         case 3:
         		mode = 0;
         		List<Map<String, Object>> list2 = jdbc.queryForList
@@ -91,7 +92,7 @@ public class MySqlApplication {
         		int end = string.indexOf("}");
         		String msg = string.substring(start,end);
         		msg1 = "	『" + inputstr + "』は『" + msg + "』ってイミだよ。";
-        		obj = Arrays.asList(new TextMessage(msg1));
+        		//obj = Arrays.asList(new TextMessage(msg1));
         		break;
         }
     	return new ReplyMessage(event.getReplyToken(), (Message) obj);
