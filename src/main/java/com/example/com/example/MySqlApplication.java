@@ -51,12 +51,17 @@ public class MySqlApplication {
         		switch (inputstr) {
         		case "あ":
         			mode = 4;
+        			break;
         		case "い":
         			mode = 5;
+        			break;
         		case "う":
         			mode = 6;
+        			break;
         		}
+        } else {
         }
+
         switch (mode) {
         case 0:
         		msg1 = "なにかはかねにようじ？" + crlf +
@@ -122,6 +127,7 @@ public class MySqlApplication {
         	mean = string2.substring(start2,end2);
         	msg1 = "さいきん『"+ word +"』をオボえたよ。" + crlf + "『" + mean + "』ってイミなんだって";
         	flag = false;
+        mode = 0;
         	break;
         }
         	return new TextMessage(msg1);
