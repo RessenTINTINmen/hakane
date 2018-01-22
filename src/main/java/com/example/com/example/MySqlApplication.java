@@ -135,8 +135,7 @@ public class MySqlApplication {
 
     public void createColumn(String word, String mean) {
         final String sql = "INSERT INTO instrument (words, means) VALUES ('" + word + "', '" + mean + "');";
-        JdbcTemplate jt = new JdbcTemplate(this.dataSource);
-        jt.execute(sql);
+        jdbc.execute(sql);
     }
 
     public void setDataSource(DataSource dataSource) {
