@@ -26,7 +26,6 @@ import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 @LineMessageHandler
 public class MySqlApplication {
 
-	private DataSource dataSource = null;
 	private int mode = 0;
 	private String word = null, mean = null;
 	final String crlf = System.getProperty("line.separator");
@@ -93,7 +92,11 @@ public class MySqlApplication {
         		int start = string.indexOf("=") + 1;
         		int end = string.indexOf("}");
         		String msg = string.substring(start,end);
-        		msg1 = "	『" + inputstr + "』は『" + msg + "』ってイミだよ。";
+        		if (msg != null) msg1 = "	『" + inputstr + "』は『" + msg + "』ってイミだよ。";
+        		else {
+        			msg1 = "そのコトバはシらないよ、オシえて？";
+        			mode = 2;
+        		}
         		break;
         case 4:
         		msg1 = "なにをオシえてくれるの？";
