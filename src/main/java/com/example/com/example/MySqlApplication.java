@@ -33,6 +33,7 @@ public class MySqlApplication {
 
     @Autowired
     private JdbcTemplate jdbc;
+	private DataSource dataSource;
 
     public static void main(String[] args) {
         SpringApplication.run(MySqlApplication.class, args);
